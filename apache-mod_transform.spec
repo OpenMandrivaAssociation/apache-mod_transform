@@ -6,7 +6,7 @@
 Summary:	XSLT and XIncludes Output filter for Apache 2
 Name:		apache-%{mod_name}
 Version:	0.6.0
-Release:	%mkrel 5
+Release:	%mkrel 6
 Group:		System/Servers
 License:	GPL
 URL:		http://www.outoforder.cc/projects/apache/mod_transform/
@@ -86,5 +86,3 @@ fi
 %attr(0644,root,root) %config(noreplace) %{_sysconfdir}/httpd/modules.d/%{mod_conf}
 %attr(0755,root,root) %{_libdir}/apache-extramodules/%{mod_so}
 /var/www/html/addon-modules/*
-
-
