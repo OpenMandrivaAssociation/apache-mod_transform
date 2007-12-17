@@ -25,7 +25,6 @@ BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.11
 BuildRequires:	libxslt-devel >= 1.1.5
 BuildRequires:	file
-BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
 %description
 mod_transform is a filter module that allows Apache 2.0 to do
