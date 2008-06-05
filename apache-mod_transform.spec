@@ -49,7 +49,7 @@ perl -pi -e "s|%{_bindir}/apu-config|$APU|g" m4/*.m4
 %build
 libtoolize --copy --force; aclocal-1.7 -I m4; automake-1.7 --add-missing --copy --foreign; autoconf
 
-%configure2_5x
+%configure2_5x --localstatedir=/var/lib
 
 %make
 
