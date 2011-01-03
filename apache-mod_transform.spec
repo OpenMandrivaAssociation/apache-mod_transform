@@ -6,7 +6,7 @@
 Summary:	XSLT and XIncludes Output filter for Apache 2
 Name:		apache-%{mod_name}
 Version:	0.6.0
-Release:	%mkrel 12
+Release:	%mkrel 13
 Group:		System/Servers
 License:	GPL
 URL:		http://www.outoforder.cc/projects/apache/mod_transform/
@@ -20,7 +20,7 @@ Requires:       apache-conf >= 2.0.54
 Requires:       apache >= 2.0.54
 BuildRequires:  apache-devel >= 2.0.54
 BuildRequires:	autoconf2.5
-BuildRequires:	automake1.7
+BuildRequires:	automake
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.11
 BuildRequires:	libxslt-devel >= 1.1.5
@@ -47,7 +47,7 @@ perl -pi -e "s|%{_bindir}/apr-config|$APR|g" m4/*.m4
 perl -pi -e "s|%{_bindir}/apu-config|$APU|g" m4/*.m4
 
 %build
-libtoolize --copy --force; aclocal-1.7 -I m4; automake-1.7 --add-missing --copy --foreign; autoconf
+libtoolize --copy --force; aclocal -I m4; automake --add-missing --copy --foreign; autoconf
 
 %configure2_5x --localstatedir=/var/lib
 
