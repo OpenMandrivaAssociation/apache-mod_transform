@@ -9,7 +9,7 @@ Version:	0.6.0
 Release:	38
 Group:		System/Servers
 License:	GPL
-URL:		http://www.outoforder.cc/projects/apache/mod_transform/
+URL:		https://www.outoforder.cc/projects/apache/mod_transform/
 Source0:	http://www.outoforder.cc/downloads/mod_transform/%{mod_name}-%{version}.tar.bz2
 Source1:	%{mod_conf}.bz2
 Requires(pre): rpm-helper
