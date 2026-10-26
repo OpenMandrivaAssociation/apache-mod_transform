@@ -23,6 +23,7 @@ BuildRequires:	slibtool
 BuildRequires:  apache-devel >= 2.0.54
 BuildRequires:	autoconf2.5
 BuildRequires:	automake
+BuildRequires:	make
 BuildRequires:	libtool
 BuildRequires:	libxml2-devel >= 2.6.11
 BuildRequires:	libxslt-devel >= 1.1.5
