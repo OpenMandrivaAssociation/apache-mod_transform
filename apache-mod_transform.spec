@@ -26,7 +26,7 @@ BuildRequires:	automake
 BuildRequires:	make
 BuildRequires:	libtool
 BuildRequires:	pkgconfig(libxml-2.0) >= 2.6.11
-BuildRequires:	libxslt-devel >= 1.1.5
+BuildRequires:	pkgconfig(libxslt) >= 1.1.5
 BuildRequires:	file
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
 
@@ -50,6 +50,22 @@ perl -pi -e "s|%{_bindir}/apr-config|$APR|g" m4/*.m4
 perl -pi -e "s|%{_bindir}/apu-config|$APU|g" m4/*.m4
 
 %build
+# xslt-config computes its prefix as /usr/bin/.. and then omits the
+# libxml2 include directory. Ask pkg-config instead.
+mkdir -p xslt-wrap
+cat > xslt-wrap/xslt-config << 'EOF'
+#!/bin/sh
+out=
+for arg in "$@"; do
+	case "$arg" in
+	--version) out="$out --modversion" ;;
+	--cflags|--libs) out="$out $arg" ;;
+	esac
+done
+exec pkg-config libxslt $out
+EOF
+chmod 755 xslt-wrap/xslt-config
+export PATH="$PWD/xslt-wrap:$PATH"
 libtoolize --copy --force; aclocal -I m4; automake --add-missing --copy --foreign; autoconf
 
 %configure2_5x --localstatedir=/var/lib
