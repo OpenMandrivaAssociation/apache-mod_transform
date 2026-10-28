@@ -25,7 +25,7 @@ BuildRequires:	autoconf2.5
 BuildRequires:	automake
 BuildRequires:	make
 BuildRequires:	libtool
-BuildRequires:	libxml2-devel >= 2.6.11
+BuildRequires:	pkgconfig(libxml-2.0) >= 2.6.11
 BuildRequires:	libxslt-devel >= 1.1.5
 BuildRequires:	file
 BuildRoot:	%{_tmppath}/%{name}-%{version}-%{release}-buildroot
@@ -79,9 +79,6 @@ if [ "$1" = "0" ]; then
 	%{_initrddir}/httpd restart 1>&2
     fi
 fi
-
-%clean
-[ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
 
 %files
 %defattr(-,root,root)
