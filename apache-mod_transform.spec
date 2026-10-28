@@ -70,7 +70,9 @@ libtoolize --copy --force; aclocal -I m4; automake --add-missing --copy --foreig
 
 %configure2_5x --localstatedir=/var/lib
 
-%make
+# slibtoolize leaves a stub ltmain.sh, and aclocal still picks GNU
+# libtool.m4, so the generated libtool exits without linking.
+%make LIBTOOL=slibtool-shared
 
 %install
 [ "%{buildroot}" != "/" ] && rm -rf %{buildroot}
